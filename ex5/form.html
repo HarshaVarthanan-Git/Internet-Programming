@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+</head>
+<body>
+<form id="myForm" onsubmit="return validateForm()">
+  <label for="userId">User ID (5-7 characters):</label><br>
+  <input type="text" id="userId" name="userId" minlength="5" maxlength="7" required><br><br>
+  
+  <label for="password">Password (7-12 characters):</label><br>
+  <input type="password" id="password" name="password" minlength="7" maxlength="12" required><br><br>
+  
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" pattern="[a-zA-Z ]+" required><br><br>
+  
+  <label for="address">Address:</label><br>
+  <input type="text" id="address" name="address" pattern="[a-zA-Z0-9 ]+" required><br><br>
+  
+  <label for="country">Country:</label><br>
+  <select id="country" name="country" required>
+    <option value="">Select Country</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Canada">Canada</option>
+    <option value="Australia">Australia</option>
+  </select><br><br>
+  
+  <label for="zipcode">Zipcode:</label><br>
+  <input type="text" id="zipcode" name="zipcode" pattern="[a-zA-Z0-9]+" required><br><br>
+  
+  <label>Gender:</label><br>
+  <input type="radio" id="male" name="gender" value="male" required>
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="female" required>
+  <label for="female">Female</label><br><br>
+  
+  <label>Language:</label><br>
+  <input type="radio" id="english" name="language" value="english" checked>
+  <label for="english">English</label>
+  <input type="radio" id="nonenglish" name="language" value="nonenglish">
+  <label for="nonenglish">Non-English</label><br><br>
+  
+  <label for="about">About:</label><br>
+  <textarea id="about" name="about"></textarea><br><br>
+  
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+function validateForm() {
+  const userId = document.getElementById('userId');
+  const password = document.getElementById('password');
+  const name = document.getElementById('name');
+  const address = document.getElementById('address');
+  const country = document.getElementById('country');
+  const zipcode = document.getElementById('zipcode');
+  const gender = document.querySelector('input[name="gender"]:checked');
+  
+  if (userId.value.length < 5 || userId.value.length > 7) {
+    alert("User ID must be between 5 and 7 characters.");
+    return false;
+  }
+  
+  if (password.value.length < 7 || password.value.length > 12) {
+    alert("Password must be between 7 and 12 characters.");
+    return false;
+  }
+  
+  if (!name.value.match(/^[a-zA-Z\s]+$/)) {
+    alert("Name must contain only alphabets.");
+    return false;
+  }
+  
+  if (!address.value.match(/^[a-zA-Z0-9\s]+$/)) {
+    alert("Address must be alphanumeric.");
+    return false;
+  }
+  
+  if (country.value === '') {
+    alert("Please select a country.");
+    return false;
+  }
+  
+  if (!zipcode.value.match(/^[a-zA-Z0-9]+$/)) {
+    alert("Zipcode must be alphanumeric.");
+    return false;
+  }
+  
+  if (!gender) {
+    alert("Please select a gender.");
+    return false;
+  }
+  
+  return true;
+}
+</script>
+</body>
+</html>

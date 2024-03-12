@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetic Operations</title>
+</head>
+<body>
+
+<input type="text" id="number1" placeholder="Enter number 1">
+<input type="text" id="number2" placeholder="Enter number 2">
+<button id="add-btn">+</button>
+<button id="subtract-btn">-</button>
+<button id="multiply-btn">*</button>
+<button id="divide-btn">/</button>
+<p id="result"></p>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#add-btn').click(function() {
+      performOperation('+');
+    });
+
+    $('#subtract-btn').click(function() {
+      performOperation('-');
+    });
+
+    $('#multiply-btn').click(function() {
+      performOperation('*');
+    });
+
+    $('#divide-btn').click(function() {
+      performOperation('/');
+    });
+
+    function performOperation(operator) {
+      var num1 = parseFloat($('#number1').val());
+      var num2 = parseFloat($('#number2').val());
+
+      if (!isNaN(num1) && !isNaN(num2)) {
+        var result;
+        switch (operator) {
+          case '+':
+            result = num1 + num2;
+            break;
+          case '-':
+            result = num1 - num2;
+            break;
+          case '*':
+            result = num1 * num2;
+            break;
+          case '/':
+            if (num2 !== 0) {
+              result = num1 / num2;
+            } else {
+              result = 'Cannot divide by zero';
+            }
+            break;
+        }
+        $('#result').text('Result: ' + result);
+      } else {
+        $('#result').text('Invalid input');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

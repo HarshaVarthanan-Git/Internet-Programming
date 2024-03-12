@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color</title>
+<style>
+  #color-div {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div id="color-div"></div>
+<button id="change-color-btn">Change Color</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#change-color-btn').click(function() {
+      $('#color-div').css('background-color', getRandomColor());
+    });
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  });
+</script>
+
+</body>
+</html>
