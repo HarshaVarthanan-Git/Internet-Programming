@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Details</title>
+</head>
+<body>
+    <h2>Book Details</h2>
+    <label for="bookId">Enter Book ID:</label>
+    <input type="text" id="bookId">
+    <button onclick="fun()">Get Details</button>
+    <div id="bookDetails"></div>
+
+    <script>
+        function fun() {
+            var bookId = document.getElementById("bookId").value;
+            var obj = new XMLHttpRequest();
+            obj.onreadystatechange = function() {
+                if (obj.readyState == 4 && obj.status == 200) {
+                    fun1(obj);
+                }
+            };
+            obj.open("GET", "books.xml", true);
+            obj.send();
+            
+        }
+
+        function fun1(xml) {
+            var data = xml.responseXML;
+            var bookId = document.getElementById("bookId").value;
+            var books = data.getElementsByTagName("book");
+            var bookDetails = "";
+            for (var i = 0; i < books.length; i++) {
+                var id = books[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+                if (id == bookId) {
+                    var title = books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                    var author = books[i].getElementsByTagName("author")[0].childNodes[0].nodeValue;
+                    var genre = books[i].getElementsByTagName("genre")[0].childNodes[0].nodeValue;
+                    var year = books[i].getElementsByTagName("year")[0].childNodes[0].nodeValue;
+                    bookDetails += "<p><strong>Title:</strong> " + title + "</p>";
+                    bookDetails += "<p><strong>Author:</strong> " + author + "</p>";
+                    bookDetails += "<p><strong>Genre:</strong> " + genre + "</p>";
+                    bookDetails += "<p><strong>Year:</strong> " + year + "</p>";
+                    break;
+                }
+            }
+            
+            document.getElementById("bookDetails").innerHTML = bookDetails;
+        }
+    </script>
+</body>
+</html>
