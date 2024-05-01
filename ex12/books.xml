@@ -1,0 +1,37 @@
+<library>
+  <book>
+    <id>1</id>
+    <title>One Piece</title>
+    <author>ODA</author>
+    <genre>Classic</genre>
+    <year>1989</year>
+  </book>
+  <book>
+    <id>2</id>
+    <title>Naruto</title>
+    <author>Kishimoto</author>
+    <genre>Fiction</genre>
+    <year>2004</year>
+  </book>
+  <book>
+    <id>3</id>
+    <title>Your Name</title>
+    <author>Makota</author>
+    <genre>Love</genre>
+    <year>2016</year>
+  </book>
+  <book>
+    <id>4</id>
+    <title>Percy Jackson</title>
+    <author>Rick </author>
+    <genre>Adventure</genre>
+    <year>1951</year>
+  </book>
+  <book>
+    <id>5</id>
+    <title>Harry potter</title>
+    <author>J.K. Rowling</author>
+    <genre>Fantasy</genre>
+    <year>1997</year>
+  </book>
+</library>
