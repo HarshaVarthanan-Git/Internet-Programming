@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="bookt.xsl"?>
+<books>
+    <book>
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+        <year>1925</year>
+    </book>
+    <book>
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+        <year>1960</year>
+    </book>
+    <book>
+        <title>Percy Jackson</title>
+        <author>Rick Riordan</author>
+        <year>2005</year>
+    </book>
+    <book>
+        <title>Mousetrap</title>
+        <author>Agatha Christie</author>
+        <year>1952</year>
+    </book>
+    <book>
+        <title>The Power of Subconscious Mind</title>
+        <author>Joseph Murphy</author>
+        <year>1963</year>
+    </book>
+    <book>
+        <title>It Ends With Us</title>
+        <author>Colleen Hoover</author>
+        <year>2016</year>
+    </book>
+    <book>
+        <title>Harry Potter and the Philosopher's Stone</title>
+        <author>J.K. Rowling</author>
+        <year>1997</year>
+    </book>
+</books>
